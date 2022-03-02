@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E62C27CF947C00D94C4A /* AppDelegate.swift */; };
 		9476E62F27CF947C00D94C4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E62E27CF947C00D94C4A /* SceneDelegate.swift */; };
-		9476E63127CF947C00D94C4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E63027CF947C00D94C4A /* ViewController.swift */; };
-		9476E63427CF947D00D94C4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9476E63227CF947D00D94C4A /* Main.storyboard */; };
 		9476E63627CF947F00D94C4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9476E63527CF947F00D94C4A /* Assets.xcassets */; };
 		9476E63927CF947F00D94C4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9476E63727CF947F00D94C4A /* LaunchScreen.storyboard */; };
 		9476E64427CF947F00D94C4A /* BirdChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E64327CF947F00D94C4A /* BirdChatTests.swift */; };
@@ -39,8 +37,6 @@
 		9476E62927CF947C00D94C4A /* BirdChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476E62C27CF947C00D94C4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9476E62E27CF947C00D94C4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9476E63027CF947C00D94C4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9476E63327CF947D00D94C4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9476E63527CF947F00D94C4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9476E63827CF947F00D94C4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9476E63A27CF947F00D94C4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +95,8 @@
 		9476E62B27CF947C00D94C4A /* BirdChat */ = {
 			isa = PBXGroup;
 			children = (
-				9476E62C27CF947C00D94C4A /* AppDelegate.swift */,
-				9476E62E27CF947C00D94C4A /* SceneDelegate.swift */,
-				9476E63027CF947C00D94C4A /* ViewController.swift */,
-				9476E63227CF947D00D94C4A /* Main.storyboard */,
-				9476E63527CF947F00D94C4A /* Assets.xcassets */,
-				9476E63727CF947F00D94C4A /* LaunchScreen.storyboard */,
-				9476E63A27CF947F00D94C4A /* Info.plist */,
+				9476E65D27CFB7AE00D94C4A /* App */,
+				9476E65E27CFB92200D94C4A /* Resources */,
 			);
 			path = BirdChat;
 			sourceTree = "<group>";
@@ -127,6 +118,25 @@
 			path = BirdChatUITests;
 			sourceTree = "<group>";
 		};
+		9476E65D27CFB7AE00D94C4A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9476E62C27CF947C00D94C4A /* AppDelegate.swift */,
+				9476E62E27CF947C00D94C4A /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9476E65E27CFB92200D94C4A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9476E63A27CF947F00D94C4A /* Info.plist */,
+				9476E63527CF947F00D94C4A /* Assets.xcassets */,
+				9476E63727CF947F00D94C4A /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +147,7 @@
 				9476E62527CF947C00D94C4A /* Sources */,
 				9476E62627CF947C00D94C4A /* Frameworks */,
 				9476E62727CF947C00D94C4A /* Resources */,
+				9476E65C27CFB78300D94C4A /* Run Script + SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -233,7 +244,6 @@
 			files = (
 				9476E63927CF947F00D94C4A /* LaunchScreen.storyboard in Resources */,
 				9476E63627CF947F00D94C4A /* Assets.xcassets in Resources */,
-				9476E63427CF947D00D94C4A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,12 +263,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9476E65C27CFB78300D94C4A /* Run Script + SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script + SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint --config .swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9476E62527CF947C00D94C4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9476E63127CF947C00D94C4A /* ViewController.swift in Sources */,
 				9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */,
 				9476E62F27CF947C00D94C4A /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +327,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9476E63227CF947D00D94C4A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9476E63327CF947D00D94C4A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9476E63727CF947F00D94C4A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,7 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BirdChat/Info.plist;
+				INFOPLIST_FILE = BirdChat/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -467,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BirdChat/Info.plist;
+				INFOPLIST_FILE = BirdChat/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

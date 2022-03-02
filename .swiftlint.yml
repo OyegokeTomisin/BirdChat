@@ -1,0 +1,11 @@
+included:
+  - BirdChat/App
+
+excluded:
+- BirdChatTests
+- BirdChatUITests
+- BirdChat/App/AppDelegate.swift
+- BirdChat/App/SceneDelegate.swift
+
+disabled_rules:
+- trailing_whitespace

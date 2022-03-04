@@ -1,7 +1,3 @@
-included:
-  - BirdChat/App
-  - Pods
-
 excluded:
 - BirdChatTests
 - BirdChatUITests
@@ -10,3 +6,4 @@ excluded:
 
 disabled_rules:
 - trailing_whitespace
+- line_length

@@ -16,6 +16,11 @@
 		9476E64427CF947F00D94C4A /* BirdChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E64327CF947F00D94C4A /* BirdChatTests.swift */; };
 		9476E64E27CF947F00D94C4A /* BirdChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E64D27CF947F00D94C4A /* BirdChatUITests.swift */; };
 		9476E65027CF947F00D94C4A /* BirdChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E64F27CF947F00D94C4A /* BirdChatUITestsLaunchTests.swift */; };
+		94AD641627D28BA400AA486E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641027D28BA400AA486E /* UIView+Extension.swift */; };
+		94AD641727D28BA400AA486E /* BasePreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641127D28BA400AA486E /* BasePreviewProvider.swift */; };
+		94AD641B27D28BA400AA486E /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641527D28BA400AA486E /* BaseView.swift */; };
+		94AD641E27D28C7300AA486E /* MessageInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641D27D28C7300AA486E /* MessageInputField.swift */; };
+		94AD642027D28D9F00AA486E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641F27D28D9F00AA486E /* ChatViewController.swift */; };
 		A0DA3592657DC9439F2D1E9A /* Pods_BirdChat_BirdChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BC5AF734B8C4F9B983B207 /* Pods_BirdChat_BirdChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +59,11 @@
 		9476E64927CF947F00D94C4A /* BirdChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirdChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476E64D27CF947F00D94C4A /* BirdChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdChatUITests.swift; sourceTree = "<group>"; };
 		9476E64F27CF947F00D94C4A /* BirdChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		94AD641027D28BA400AA486E /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		94AD641127D28BA400AA486E /* BasePreviewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreviewProvider.swift; sourceTree = "<group>"; };
+		94AD641527D28BA400AA486E /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		94AD641D27D28C7300AA486E /* MessageInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputField.swift; sourceTree = "<group>"; };
+		94AD641F27D28D9F00AA486E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9957786B54BDA672453E0F9D /* Pods-BirdChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChatTests.release.xcconfig"; path = "Target Support Files/Pods-BirdChatTests/Pods-BirdChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6827FCE69F99978FCE30F54 /* Pods-BirdChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChatTests.debug.xcconfig"; path = "Target Support Files/Pods-BirdChatTests/Pods-BirdChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4BC5AF734B8C4F9B983B207 /* Pods_BirdChat_BirdChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirdChat_BirdChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				9476E65D27CFB7AE00D94C4A /* App */,
+				94AD641C27D28BB100AA486E /* Utility */,
 				9476E65E27CFB92200D94C4A /* Resources */,
 			);
 			path = BirdChat;
@@ -163,6 +174,7 @@
 			children = (
 				9476E62C27CF947C00D94C4A /* AppDelegate.swift */,
 				9476E62E27CF947C00D94C4A /* SceneDelegate.swift */,
+				94AD641F27D28D9F00AA486E /* ChatViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -175,6 +187,25 @@
 				9476E63727CF947F00D94C4A /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		94AD640F27D28BA400AA486E /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				94AD641527D28BA400AA486E /* BaseView.swift */,
+				94AD641D27D28C7300AA486E /* MessageInputField.swift */,
+				94AD641027D28BA400AA486E /* UIView+Extension.swift */,
+				94AD641127D28BA400AA486E /* BasePreviewProvider.swift */,
+			);
+			path = Subclass;
+			sourceTree = "<group>";
+		};
+		94AD641C27D28BB100AA486E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				94AD640F27D28BA400AA486E /* Subclass */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,8 +465,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AD641727D28BA400AA486E /* BasePreviewProvider.swift in Sources */,
+				94AD641627D28BA400AA486E /* UIView+Extension.swift in Sources */,
 				9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */,
+				94AD642027D28D9F00AA486E /* ChatViewController.swift in Sources */,
+				94AD641E27D28C7300AA486E /* MessageInputField.swift in Sources */,
 				9476E62F27CF947C00D94C4A /* SceneDelegate.swift in Sources */,
+				94AD641B27D28BA400AA486E /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +647,6 @@
 				INFOPLIST_FILE = BirdChat/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -640,7 +675,6 @@
 				INFOPLIST_FILE = BirdChat/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

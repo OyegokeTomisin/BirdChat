@@ -10,6 +10,7 @@
 		0B0A35993AB4E9F692F75089 /* Pods_BirdChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F790F8DFF8574173EE32311 /* Pods_BirdChatTests.framework */; };
 		7933462FF82C49483C483BDE /* Pods_BirdChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCF921589427219EDB865EC /* Pods_BirdChat.framework */; };
 		9404385727D33E6A00A04D02 /* VerticalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9404385627D33E6A00A04D02 /* VerticalStack.swift */; };
+		944048F327D372D4005109F1 /* AudioInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944048F227D372D4005109F1 /* AudioInputField.swift */; };
 		9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E62C27CF947C00D94C4A /* AppDelegate.swift */; };
 		9476E62F27CF947C00D94C4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476E62E27CF947C00D94C4A /* SceneDelegate.swift */; };
 		9476E63627CF947F00D94C4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9476E63527CF947F00D94C4A /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		6DD2438234F614A63D3E3384 /* Pods-BirdChat-BirdChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChat-BirdChatUITests.release.xcconfig"; path = "Target Support Files/Pods-BirdChat-BirdChatUITests/Pods-BirdChat-BirdChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8270120E65EFB10C43068DAA /* Pods-BirdChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChat.debug.xcconfig"; path = "Target Support Files/Pods-BirdChat/Pods-BirdChat.debug.xcconfig"; sourceTree = "<group>"; };
 		9404385627D33E6A00A04D02 /* VerticalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStack.swift; sourceTree = "<group>"; };
+		944048F227D372D4005109F1 /* AudioInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputField.swift; sourceTree = "<group>"; };
 		9476E62927CF947C00D94C4A /* BirdChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476E62C27CF947C00D94C4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9476E62E27CF947C00D94C4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				94AD641527D28BA400AA486E /* BaseView.swift */,
+				944048F227D372D4005109F1 /* AudioInputField.swift */,
 				94AD641D27D28C7300AA486E /* MessageInputField.swift */,
 				944048F427D377A2005109F1 /* Stack View */,
 				94AD641027D28BA400AA486E /* UIView+Extension.swift */,
@@ -485,6 +488,7 @@
 				9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */,
 				94AD642027D28D9F00AA486E /* ChatViewController.swift in Sources */,
 				9404385727D33E6A00A04D02 /* VerticalStack.swift in Sources */,
+				944048F327D372D4005109F1 /* AudioInputField.swift in Sources */,
 				94AD641E27D28C7300AA486E /* MessageInputField.swift in Sources */,
 				9476E62F27CF947C00D94C4A /* SceneDelegate.swift in Sources */,
 				94AD641B27D28BA400AA486E /* BaseView.swift in Sources */,

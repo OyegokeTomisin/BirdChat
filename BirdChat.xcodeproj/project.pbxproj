@@ -135,6 +135,16 @@
 			path = "Stack View";
 			sourceTree = "<group>";
 		};
+		944048F527D3781C005109F1 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				94AD641527D28BA400AA486E /* BaseView.swift */,
+				94AD641027D28BA400AA486E /* UIView+Extension.swift */,
+				94AD641127D28BA400AA486E /* BasePreviewProvider.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		9476E62027CF947C00D94C4A = {
 			isa = PBXGroup;
 			children = (
@@ -207,12 +217,10 @@
 		94AD640F27D28BA400AA486E /* Subclass */ = {
 			isa = PBXGroup;
 			children = (
-				94AD641527D28BA400AA486E /* BaseView.swift */,
+				944048F527D3781C005109F1 /* UIView */,
+				944048F427D377A2005109F1 /* Stack View */,
 				944048F227D372D4005109F1 /* AudioInputField.swift */,
 				94AD641D27D28C7300AA486E /* MessageInputField.swift */,
-				944048F427D377A2005109F1 /* Stack View */,
-				94AD641027D28BA400AA486E /* UIView+Extension.swift */,
-				94AD641127D28BA400AA486E /* BasePreviewProvider.swift */,
 			);
 			path = Subclass;
 			sourceTree = "<group>";

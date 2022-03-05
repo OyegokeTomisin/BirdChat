@@ -10,11 +10,13 @@ import AVFoundation
 
 final class ChatViewController: UIViewController {
     
+    private let messageInputField = MessageInputField()
+    private let audioInputField = AudioInputField()
+    
     var recordingSession: AVAudioSession?
     var audioRecorder: AVAudioRecorder?
     
-    let messageInputField = MessageInputField()
-    let audioInputField = AudioInputField()
+    let viewModel = ChatViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,8 @@ final class ChatViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        viewModel.startMessagerService()
     }
     
     @objc func startRecording() {
@@ -67,8 +71,8 @@ final class ChatViewController: UIViewController {
     }
     
     @objc func sendMessage() {
+        viewModel.sendMessage(messageInputField.texView.text)
         messageInputField.sendMessage()
-        // debugPrint(messageInputField.texView.text)
     }
     
     @objc func dismissKeyboard() {

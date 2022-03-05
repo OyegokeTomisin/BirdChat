@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class ChatViewController: UIViewController {
+    
+    var recordingSession: AVAudioSession?
+    var audioRecorder: AVAudioRecorder?
     
     let messageInputField = MessageInputField()
     let audioInputField = AudioInputField()
@@ -33,6 +37,8 @@ final class ChatViewController: UIViewController {
         
         cancelRecording()
         
+        loadAudioSession()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -40,6 +46,7 @@ final class ChatViewController: UIViewController {
     @objc func startRecording() {
         messageInputField.isHidden = true
         audioInputField.isHidden = false
+        startAudioRecording()
     }
     
     @objc func cancelRecording() {
@@ -48,11 +55,15 @@ final class ChatViewController: UIViewController {
     }
     
     @objc func stopRecording() {
-        
+        finishRecording(success: true)
     }
     
     @objc func sendRecording() {
         cancelRecording()
+        
+        if let data = try? Data(contentsOf: getDocumentsDirectory()) {
+            
+        }
     }
     
     @objc func sendMessage() {
@@ -79,5 +90,70 @@ final class ChatViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension ChatViewController {
+    
+    func loadAudioSession() {
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession?.setCategory(.playAndRecord, mode: .default)
+            try recordingSession?.setActive(true)
+            recordingSession?.requestRecordPermission { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    self.messageInputField.recordButton.isHidden = !allowed
+                }
+            }
+        } catch {
+            // failed to record!
+        }
+    }
+    
+    func startAudioRecording() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder?.delegate = self
+            audioRecorder?.record()
+        } catch {
+            finishRecording(success: false)
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func finishRecording(success: Bool) {
+        audioRecorder?.stop()
+        audioRecorder = nil
+    }
+    
+    @objc func recordTapped() {
+        if audioRecorder == nil {
+            startRecording()
+        } else {
+            finishRecording(success: true)
+        }
+    }
+}
+
+extension ChatViewController: AVAudioRecorderDelegate {
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false)
+        }
     }
 }

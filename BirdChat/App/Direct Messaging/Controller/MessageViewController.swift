@@ -12,6 +12,7 @@ final class MessageViewController: MessagesViewController, MessagesDataSource, M
     
     var currentUser: Sender?
     var messages: [ChatMessage] = []
+    lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
     
     override var inputAccessoryView: UIView? { return nil }
     
@@ -20,6 +21,7 @@ final class MessageViewController: MessagesViewController, MessagesDataSource, M
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
     }
     
     func currentSender() -> SenderType {
@@ -32,5 +34,27 @@ final class MessageViewController: MessagesViewController, MessagesDataSource, M
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
+    }
+}
+
+extension MessageViewController: MessageCellDelegate {
+    
+    func didTapPlayButton(in cell: AudioMessageCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell),
+              let message = messagesCollectionView.messagesDataSource?.messageForItem(at: indexPath, in: messagesCollectionView) else { return }
+        guard audioController.state != .stopped else {
+            audioController.playSound(for: message, in: cell)
+            return
+        }
+        if audioController.playingMessage?.messageId == message.messageId {
+            if audioController.state == .playing {
+                audioController.pauseSound(for: message, in: cell)
+            } else {
+                audioController.resumeSound()
+            }
+        } else {
+            audioController.stopAnyOngoingPlaying()
+            audioController.playSound(for: message, in: cell)
+        }
     }
 }

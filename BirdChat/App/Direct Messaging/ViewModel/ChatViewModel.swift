@@ -9,7 +9,7 @@ import Foundation
 
 final class ChatViewModel {
     
-    let service = MessengerService(userID: "user123", recipientID: "fizz")
+    let service = MessengerService(userID: "fizz", recipientID: "user123")
     
     func sendMessage(_ message: String?, completion: @escaping (() -> Void)) {
         guard let message = message else { return }

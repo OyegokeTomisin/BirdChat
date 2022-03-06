@@ -58,8 +58,10 @@ final class ChatViewController: UIViewController {
     }
     
     @objc func startRecording() {
-        messageInputField.isHidden = true
-        audioInputField.isHidden = false
+        DispatchQueue.main.async {
+            self.messageInputField.isHidden = true
+            self.audioInputField.isHidden = false
+        }
         startAudioRecording()
     }
     
@@ -74,9 +76,10 @@ final class ChatViewController: UIViewController {
     
     @objc func sendRecording() {
         cancelRecording()
-        
-        if let data = try? Data(contentsOf: getDocumentsDirectory()) {
-            
+        let fileName = "recording.m4a"
+        let audioFilename = getDocumentsDirectory().appendingPathComponent(fileName)
+        if let audioData = try? Data(contentsOf: audioFilename) {
+            viewModel.service.sendVoiceNote(from: audioData, with: fileName, completion: { })
         }
     }
     

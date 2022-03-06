@@ -32,6 +32,19 @@ final class MessengerService: NSObject, MesssengerServiceRepository {
         }
     }
     
+    func sendVoiceNote(from file: Data, with fileName: String, completion: @escaping () -> Void) {
+        guard let params = SBDFileMessageParams.init(file: file) else { return }
+        params.fileName = fileName
+        params.mimeType = "audio/m4a"
+        // params.fileSize = FILE_SIZE
+        channel?.sendFileMessage(with: params, completionHandler: { (fileMessage, error) in
+            completion()
+            guard error == nil else { return }
+            guard let recipient = fileMessage?.sender?.asSender, let message = fileMessage else { return }
+            self.updateMessageUIForRecipient(with: message, recipient: recipient)
+        })
+    }
+    
     private func connectServer() {
         SBDMain.add(self, identifier: "CLASS_IDENTIFIER")
         SBDMain.connect(withUserId: USER_ID) { [weak self] user, error in
@@ -56,8 +69,18 @@ final class MessengerService: NSObject, MesssengerServiceRepository {
     }
     
     private func updateMessageUIForRecipient(with message: SBDBaseMessage, recipient: Sender) {
-        let chatMessage = ChatMessage(sender: recipient, messageId: String("\(message.messageId)"), sentDate: Date(), kind: .text(message.message))
-        didReceiveMessageUpdate?(chatMessage)
+        if message is SBDFileMessage {
+            if let fileMessage = message as? SBDFileMessage, let fileURL = URL(string: fileMessage.url) {
+                let audioItem = AudioMessage(url: fileURL, duration: 0, size: .zero)
+                let audioMessage = ChatMessage(sender: recipient, messageId: String("\(message.messageId)"), sentDate: Date(), kind: .audio(audioItem))
+                didReceiveMessageUpdate?(audioMessage)
+            }
+        }
+        
+        if message is SBDUserMessage {
+            let chatMessage = ChatMessage(sender: recipient, messageId: String("\(message.messageId)"), sentDate: Date(), kind: .text(message.message))
+            didReceiveMessageUpdate?(chatMessage)
+        }
     }
 }
 

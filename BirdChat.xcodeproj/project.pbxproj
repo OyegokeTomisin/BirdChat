@@ -24,6 +24,7 @@
 		948E486A27D4A6E400E35408 /* MesssengerServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E486927D4A6E400E35408 /* MesssengerServiceRepository.swift */; };
 		948E487027D4A8CF00E35408 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E486F27D4A8CF00E35408 /* ChatMessage.swift */; };
 		948E487227D4A8DF00E35408 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E487127D4A8DF00E35408 /* Sender.swift */; };
+		948E487627D501AF00E35408 /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E487527D501AF00E35408 /* AudioMessage.swift */; };
 		94AD641627D28BA400AA486E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641027D28BA400AA486E /* UIView+Extension.swift */; };
 		94AD641727D28BA400AA486E /* BasePreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641127D28BA400AA486E /* BasePreviewProvider.swift */; };
 		94AD641B27D28BA400AA486E /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641527D28BA400AA486E /* BaseView.swift */; };
@@ -76,6 +77,7 @@
 		948E486927D4A6E400E35408 /* MesssengerServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssengerServiceRepository.swift; sourceTree = "<group>"; };
 		948E486F27D4A8CF00E35408 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		948E487127D4A8DF00E35408 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		948E487527D501AF00E35408 /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
 		94AD641027D28BA400AA486E /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		94AD641127D28BA400AA486E /* BasePreviewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreviewProvider.swift; sourceTree = "<group>"; };
 		94AD641527D28BA400AA486E /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				948E487127D4A8DF00E35408 /* Sender.swift */,
 				948E486F27D4A8CF00E35408 /* ChatMessage.swift */,
+				948E487527D501AF00E35408 /* AudioMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				948E487027D4A8CF00E35408 /* ChatMessage.swift in Sources */,
 				944048F727D3A6C6005109F1 /* MessengerService.swift in Sources */,
 				944048FB27D417A4005109F1 /* MessageViewController.swift in Sources */,
+				948E487627D501AF00E35408 /* AudioMessage.swift in Sources */,
 				94AD642227D29AB800AA486E /* HorizontalStack.swift in Sources */,
 				948E487227D4A8DF00E35408 /* Sender.swift in Sources */,
 				94AD641727D28BA400AA486E /* BasePreviewProvider.swift in Sources */,

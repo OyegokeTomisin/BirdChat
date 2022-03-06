@@ -1,0 +1,11 @@
+excluded:
+- BirdChatTests
+- BirdChatUITests
+- BirdChat/App/AppDelegate.swift
+- BirdChat/App/SceneDelegate.swift
+- Pods
+
+disabled_rules:
+- trailing_whitespace
+- line_length
+- identifier_name

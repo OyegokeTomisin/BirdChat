@@ -7,6 +7,7 @@ target 'BirdChat' do
 
   # Pods for BirdChat
     pod 'SendBirdSDK'
+    pod 'MessageKit'
 
   target 'BirdChatTests' do
     inherit! :search_paths

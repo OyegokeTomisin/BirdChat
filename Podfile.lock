@@ -1,16 +1,26 @@
 PODS:
+  - InputBarAccessoryView (5.4.0):
+    - InputBarAccessoryView/Core (= 5.4.0)
+  - InputBarAccessoryView/Core (5.4.0)
+  - MessageKit (3.7.0):
+    - InputBarAccessoryView (~> 5.4.0)
   - SendBirdSDK (3.1.5)
 
 DEPENDENCIES:
+  - MessageKit
   - SendBirdSDK
 
 SPEC REPOS:
   trunk:
+    - InputBarAccessoryView
+    - MessageKit
     - SendBirdSDK
 
 SPEC CHECKSUMS:
+  InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   SendBirdSDK: f0ceb0db0f2ee2656a0c8ad50a6378a90a9f0e00
 
-PODFILE CHECKSUM: fa9a07efabc4f9801ed26ce9eead42636df8b044
+PODFILE CHECKSUM: 1e13e0dfc94e2c162c727950ca7e4ba458433f8b
 
 COCOAPODS: 1.11.2

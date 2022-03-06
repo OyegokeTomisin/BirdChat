@@ -10,16 +10,20 @@ import AVFoundation
 
 final class ChatViewController: UIViewController {
     
+    let viewModel = ChatViewModel()
+    
     private let messageInputField = MessageInputField()
     private let audioInputField = AudioInputField()
+    private let messageListContainer = UIView()
+    private let messageViewController = MessageViewController()
     
     var recordingSession: AVAudioSession?
     var audioRecorder: AVAudioRecorder?
     
-    let viewModel = ChatViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupMessageListContainer()
         
         view.backgroundColor = .white
         view.addSubviews(messageInputField)
@@ -44,7 +48,13 @@ final class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        viewModel.startMessagerService()
+        viewModel.service.didReceiveMessageUpdate = { meesage in
+            self.messageViewController.messages.append(meesage)
+            self.messageViewController.messagesCollectionView.reloadData()
+        }
+        viewModel.service.shouldUpdateSender = { sender in
+            self.messageViewController.currentUser = sender
+        }
     }
     
     @objc func startRecording() {
@@ -94,6 +104,15 @@ final class ChatViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func setupMessageListContainer() {
+        view.addSubviews(messageListContainer)
+        messageListContainer.fillSuperview()
+        addChild(messageViewController)
+        messageListContainer.addSubview(messageViewController.view)
+        messageViewController.view.fillSuperview()
+        messageViewController.didMove(toParent: self)
     }
 }
 

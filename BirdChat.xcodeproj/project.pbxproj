@@ -31,6 +31,8 @@
 		94AD641E27D28C7300AA486E /* MessageInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641D27D28C7300AA486E /* MessageInputField.swift */; };
 		94AD642027D28D9F00AA486E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD641F27D28D9F00AA486E /* ChatViewController.swift */; };
 		94AD642227D29AB800AA486E /* HorizontalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD642127D29AB800AA486E /* HorizontalStack.swift */; };
+		94D2308627D548AA00316D21 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2308527D548AA00316D21 /* FileDownloader.swift */; };
+		94D2308827D54AFF00316D21 /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2308727D54AFF00316D21 /* BasicAudioController.swift */; };
 		A0DA3592657DC9439F2D1E9A /* Pods_BirdChat_BirdChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BC5AF734B8C4F9B983B207 /* Pods_BirdChat_BirdChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		94AD641D27D28C7300AA486E /* MessageInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputField.swift; sourceTree = "<group>"; };
 		94AD641F27D28D9F00AA486E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		94AD642127D29AB800AA486E /* HorizontalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStack.swift; sourceTree = "<group>"; };
+		94D2308527D548AA00316D21 /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
+		94D2308727D54AFF00316D21 /* BasicAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
 		9957786B54BDA672453E0F9D /* Pods-BirdChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChatTests.release.xcconfig"; path = "Target Support Files/Pods-BirdChatTests/Pods-BirdChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6827FCE69F99978FCE30F54 /* Pods-BirdChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirdChatTests.debug.xcconfig"; path = "Target Support Files/Pods-BirdChatTests/Pods-BirdChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4BC5AF734B8C4F9B983B207 /* Pods_BirdChat_BirdChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirdChat_BirdChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,9 +217,7 @@
 			children = (
 				9476E62C27CF947C00D94C4A /* AppDelegate.swift */,
 				9476E62E27CF947C00D94C4A /* SceneDelegate.swift */,
-				944048F827D3EB0A005109F1 /* ChatViewModel.swift */,
-				94AD641F27D28D9F00AA486E /* ChatViewController.swift */,
-				944048FA27D417A4005109F1 /* MessageViewController.swift */,
+				94D2308C27D557F900316D21 /* Direct Messaging */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -233,6 +235,7 @@
 		948E486B27D4A87600E35408 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				94D2308527D548AA00316D21 /* FileDownloader.swift */,
 				944048F627D3A6C6005109F1 /* MessengerService.swift */,
 				948E486927D4A6E400E35408 /* MesssengerServiceRepository.swift */,
 			);
@@ -263,11 +266,46 @@
 		94AD641C27D28BB100AA486E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				94D2308927D556F600316D21 /* Helper */,
 				948E486C27D4A8B400E35408 /* Model */,
 				948E486B27D4A87600E35408 /* Service */,
 				94AD640F27D28BA400AA486E /* Subclass */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		94D2308927D556F600316D21 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		94D2308A27D557BF00316D21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94AD641F27D28D9F00AA486E /* ChatViewController.swift */,
+				944048FA27D417A4005109F1 /* MessageViewController.swift */,
+				94D2308727D54AFF00316D21 /* BasicAudioController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		94D2308B27D557CE00316D21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				944048F827D3EB0A005109F1 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94D2308C27D557F900316D21 /* Direct Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				94D2308B27D557CE00316D21 /* ViewModel */,
+				94D2308A27D557BF00316D21 /* Controller */,
+			);
+			path = "Direct Messaging";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +571,8 @@
 				948E487627D501AF00E35408 /* AudioMessage.swift in Sources */,
 				94AD642227D29AB800AA486E /* HorizontalStack.swift in Sources */,
 				948E487227D4A8DF00E35408 /* Sender.swift in Sources */,
+				94D2308827D54AFF00316D21 /* BasicAudioController.swift in Sources */,
+				94D2308627D548AA00316D21 /* FileDownloader.swift in Sources */,
 				94AD641727D28BA400AA486E /* BasePreviewProvider.swift in Sources */,
 				94AD641627D28BA400AA486E /* UIView+Extension.swift in Sources */,
 				9476E62D27CF947C00D94C4A /* AppDelegate.swift in Sources */,

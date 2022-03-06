@@ -7,6 +7,7 @@
 
 import Foundation
 import SendBirdSDK
+import AVFoundation
 
 final class MessengerService: NSObject, MesssengerServiceRepository {
     
@@ -71,9 +72,13 @@ final class MessengerService: NSObject, MesssengerServiceRepository {
     private func updateMessageUIForRecipient(with message: SBDBaseMessage, recipient: Sender) {
         if message is SBDFileMessage {
             if let fileMessage = message as? SBDFileMessage, let fileURL = URL(string: fileMessage.url) {
-                let audioItem = AudioMessage(url: fileURL, duration: 0, size: .zero)
-                let audioMessage = ChatMessage(sender: recipient, messageId: String("\(message.messageId)"), sentDate: Date(), kind: .audio(audioItem))
-                didReceiveMessageUpdate?(audioMessage)
+                FileDownloader.downloadFile(audioUrl: fileURL) { locationURL in
+                    let audioItem = AudioMessage(url: locationURL,
+                                                 duration: Float(CMTimeGetSeconds(AVURLAsset(url: locationURL).duration)),
+                                                 size: CGSize(width: 160, height: 35))
+                    let audioMessage = ChatMessage(sender: recipient, messageId: String("\(message.messageId)"), sentDate: Date(), kind: .audio(audioItem))
+                    self.didReceiveMessageUpdate?(audioMessage)
+                }
             }
         }
         

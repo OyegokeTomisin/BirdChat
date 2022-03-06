@@ -3,6 +3,7 @@ excluded:
 - BirdChatUITests
 - BirdChat/App/AppDelegate.swift
 - BirdChat/App/SceneDelegate.swift
+- Pods
 
 disabled_rules:
 - trailing_whitespace

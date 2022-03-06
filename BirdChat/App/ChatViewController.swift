@@ -81,8 +81,9 @@ final class ChatViewController: UIViewController {
     }
     
     @objc func sendMessage() {
-        viewModel.sendMessage(messageInputField.texView.text)
-        messageInputField.sendMessage()
+        viewModel.sendMessage(messageInputField.texView.text) { [weak self] in
+            self?.messageInputField.clearTextInput()
+        }
     }
     
     @objc func dismissKeyboard() {

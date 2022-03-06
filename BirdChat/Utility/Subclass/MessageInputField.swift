@@ -63,7 +63,7 @@ final class MessageInputField: BaseView {
         sendButton.isHidden = !recordButton.isHidden
     }
     
-    func sendMessage() {
+    func clearTextInput() {
         texView.text = nil
     }
     
